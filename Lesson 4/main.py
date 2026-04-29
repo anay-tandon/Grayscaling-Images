@@ -26,3 +26,10 @@ for i in range(row):
 cv2.imshow("Piku Gray", img)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
+
+# Rotating Image
+img = cv2.imread("piku.png")
+(row, col) = img.shape[0:2]
+
+M = cv2.getRotationMatrix2D((col / 2, row / 2), 45, 1)
+res = cv2.warpAffine(img, M, (col, row))
