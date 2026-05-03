@@ -33,3 +33,21 @@ img = cv2.imread("piku.png")
 
 M = cv2.getRotationMatrix2D((col / 2, row / 2), 45, 1)
 res = cv2.warpAffine(img, M, (col, row))
+
+cv2.imshow("Rotated Image", res)
+cv2.imwrite("result.jpg", res)
+
+#Edge Detection
+img = cv2.imread("piku.png")
+edges = cv2.Canny(img, 100, 200)
+
+cv2.imshow("Edges", edges)
+cv2.imwrite("result.jpg", edges)
+
+# BGR to HSV
+image = cv2.imread("piku.png")
+hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+
+cv2.imshow("HSV Image", hsv_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
